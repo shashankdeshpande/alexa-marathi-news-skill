@@ -1,0 +1,46 @@
+name: Fetch Recent News
+
+on:
+  workflow_dispatch:      # Allows manual triggering
+  schedule:
+    - cron: '*/30 0-18 * * *'  # ~06:00 AM - 11:30 PM IST
+
+jobs:
+  fetch-and-update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    timeout-minutes: 10 # Slightly higher than 5 as downloading/processing might take time
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6 # Using v6 (latest stable)
+        with:
+          python-version: '3.11'
+          cache: 'pip' # Cache dependencies
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests feedparser psycopg2-binary boto3 python-dotenv
+
+      - name: Fetch Recent News
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASS: ${{ secrets.DB_PASS }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_SCHEMA: ${{ secrets.DB_SCHEMA }}
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+        run: python scripts/fetch_recent_news.py
+
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "Update README with latest news"
+          file_pattern: README.md
+          skip_dirty_check: false
