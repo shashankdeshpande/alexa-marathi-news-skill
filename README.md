@@ -32,7 +32,7 @@ The project uses GitHub Actions to automate the news fetching process.
 ## 📰 Latest News
 
 <!-- LATEST_NEWS_START -->
-[![Watch on YouTube](https://img.youtube.com/vi/TXbI2eHeIxU/hqdefault.jpg)](https://www.youtube.com/watch?v=TXbI2eHeIxU)  
-**[Headlines | DD Sahyadri News | सह्याद्री बातम्या | दुपारी ४.३० च्या हेडलाईन्स |](https://www.youtube.com/watch?v=TXbI2eHeIxU)**  
-📅 04 Apr 2026 04:38 PM IST
+[![Watch on YouTube](https://img.youtube.com/vi/sr3m4_zw914/hqdefault.jpg)](https://www.youtube.com/watch?v=sr3m4_zw914)  
+**[Headlines | DD Sahyadri News | सह्याद्री बातम्या | संध्याकाळी ०७.०० च्या हेडलाईन्स |](https://www.youtube.com/watch?v=sr3m4_zw914)**  
+📅 04 Apr 2026 07:11 PM IST
 <!-- LATEST_NEWS_END -->
