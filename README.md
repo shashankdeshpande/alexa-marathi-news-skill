@@ -18,8 +18,9 @@ To listen to the news, just say:
     *   Parses RSS feed.
     *   Checks PostgreSQL DB for duplicates.
     *   Fetches audio stream URL via RapidAPI and updates database.
-    *   Updates this `README.md` with the latest news status.
+    *   Latest news is displayed dynamically via Vercel API.
 3.  Backend: AWS Lambda handles Alexa requests.
+4.  Analytics: Vercel API queries Supabase on-demand to render latest news stats.
 
 ## 🔄 Workflows
 
@@ -27,12 +28,8 @@ The project uses GitHub Actions to automate the news fetching process.
 
 | Workflow | Schedule | Description |
 | :--- | :--- | :--- |
-| **Fetch Recent News** | Every 30 mins | Checks RSS feed, updates database with latest audio stream URL and refreshes this README. |
+| **Fetch Recent News** | Every 30 mins | Checks RSS feed, updates database with latest audio stream URL. News stats are rendered dynamically on README via Vercel API. |
 
-## 📰 Latest News
+---
 
-<!-- LATEST_NEWS_START -->
-[![Watch on YouTube](https://img.youtube.com/vi/RwK5bKA9Afs/hqdefault.jpg)](https://www.youtube.com/watch?v=RwK5bKA9Afs)  
-**[Headlines | DD Sahyadri News | सह्याद्री बातम्या | संध्याकाळी ७ च्या हेडलाईन्स |](https://www.youtube.com/watch?v=RwK5bKA9Afs)**  
-📅 08 May 2026 07:34 PM IST
-<!-- LATEST_NEWS_END -->
+[![Latest Marathi News](https://vercel-app-bay-omega.vercel.app/api/analytics/alexa-marathi-news-skill)](https://vercel-app-bay-omega.vercel.app/api/analytics/alexa-marathi-news-skill)

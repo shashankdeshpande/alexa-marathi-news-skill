@@ -8,8 +8,6 @@ on:
 jobs:
   fetch-and-update:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     timeout-minutes: 10 # Slightly higher than 5 as downloading/processing might take time
 
     steps:
@@ -37,10 +35,3 @@ jobs:
           DB_SCHEMA: ${{ secrets.DB_SCHEMA }}
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
         run: python scripts/fetch_recent_news.py
-
-      - name: Commit and Push Changes
-        uses: stefanzweifel/git-auto-commit-action@v7
-        with:
-          commit_message: "Update README with latest news"
-          file_pattern: README.md
-          skip_dirty_check: false
